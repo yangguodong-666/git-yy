@@ -1,0 +1,77 @@
+Option Explicit
+
+Sub select_a_single_cell()
+
+    '指定一个工作薄添加信息,如果工作薄已经存在，需要在后面加上后缀xlsx
+    'Workbooks("工作薄2.xlsx").Activate
+    
+
+    '指定一个sheet添加如下信息
+    Worksheets("sheet1").Activate
+    
+    
+    '方法一如下
+    Range("B8").Select
+    ActiveCell.Value = "商品编号"
+    
+    Range("B9").Select
+    ActiveCell.Value = "商品名称"
+    
+    Range("B10").Select
+    ActiveCell.Value = "商品库存"
+    
+    '方法二如下，excel先看行数，再看列数，然后从1开始数数，此方法比较合适混合开发
+    Cells(11, 2).Select
+    ActiveCell.Value = "商品价格"
+    
+    '方法三，方法一的升级版本
+    [C8].Select
+    ActiveCell.Value = "1"
+    
+    [C9].Select
+    ActiveCell.Value = "mask"
+    
+    [C10].Select
+    ActiveCell.Value = "100"
+    
+    [C11].Select
+    ActiveCell.Value = "5"
+    
+    [B12].Select
+    ActiveCell.Value = "最后一次进货时间"
+    
+    [C12].Select
+    ActiveCell.Value = #2/2/2020#
+
+End Sub
+
+Sub import_value_without_selecting()
+
+    Range("A1") = 1
+    
+End Sub
+
+Sub import_value_without_selecting_v2()
+
+    Workbooks("工作薄3").Worksheets("sheet1").Range("A1").Value = 1
+    Workbooks("工作薄3").Worksheets("sheet1").Range("A2").Value = "编号"
+    Workbooks("工作薄3").Worksheets("sheet1").Range("A3").Value = "价格"
+    
+End Sub
+
+Sub referring_names()
+    [商品库存].Font.Bold = True
+    [商品库存].Font.Italic = True
+End Sub
+
+Sub relative_cell()
+    '把光标移动到指定的位置
+    [B8].End(xlToRight).Offset(0, 1).Select
+    ActiveCell.Value = [B8].End(xlToRight).Value
+    ActiveCell.Offset(1, 0).Value = "food"
+    ActiveCell.Offset(2, 0).Value = "10000"
+    ActiveCell.Offset(3, 0).Value = "20"
+    ActiveCell.Offset(4, 0).Value = #2/9/2020#
+    
+    
+End Sub
