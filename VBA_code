@@ -75,3 +75,20 @@ Sub relative_cell()
     
     
 End Sub
+
+Sub change_font()
+    Range("B8", Range("B8").End(xlToRight).End(xlDown)).Font.Bold = True
+    Range("B8", Range("B8").End(xlToRight).End(xlDown)).Interior.Color = rgbGrey
+End Sub
+
+Sub copy_and_paste()
+    Worksheets("sheet1").Activate
+    Range("B8").CurrentRegion.Copy Worksheets("sheet3").Range("A1")
+    
+End Sub
+
+Sub column_autofit()
+    Worksheets("sheet3").Activate
+    ActiveSheet.Columns("A:P").EntireColumn.AutoFit
+End Sub
+
