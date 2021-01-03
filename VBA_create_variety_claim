@@ -1,0 +1,21 @@
+Option Explicit
+Public a As String
+Public b As Date
+
+
+Sub writting_a_pop_up_2()
+    '用dim去声明变量，否则会出现报错，另外在调用变量时，用ctrl+空格可以调用
+    
+    a = InputBox("请输入制表人信息")
+    b = InputBox("请输入制表人日期")
+    Call put_data_into_cell
+
+End Sub
+
+Sub put_data_into_cell()
+
+    Worksheets(1).Activate
+    Range("B1").End(xlDown).Offset(1, 0).Value = a
+    Range("B1").End(xlDown).Offset(1, 1).Value = b
+    MsgBox "已经添加了此信息"
+End Sub
