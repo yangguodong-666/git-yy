@@ -1,4 +1,5 @@
 Option Explicit
+'In VBA,we ues “Public” function to claim a lot of varieties for a project
 Public a As String
 Public b As Date
 
@@ -8,6 +9,7 @@ Sub writting_a_pop_up_2()
     
     a = InputBox("请输入制表人信息")
     b = InputBox("请输入制表人日期")
+    'We use "Call" function as below to connect different "Sub"
     Call put_data_into_cell
 
 End Sub
